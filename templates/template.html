@@ -1,0 +1,10 @@
+<script id="todo" type="text/x-dot-template">
+  <li class="{{=it.complete?'completed':''}}" style="display: none;">
+    <div class="view">
+      <input class="toggle" type="checkbox" {{=it.complete?'checked':''}} style="display: none;"/>
+      <label>{{=it.text}}</label>
+      <button class="destroy"></button>
+    </div>
+    <input class="edit" value="{{=it.text}}"/>
+  </li>
+</script>

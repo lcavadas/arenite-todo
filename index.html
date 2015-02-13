@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Template • TodoMVC</title>
+  <link rel="stylesheet" href="build/todo.css">
+  <script type="application/javascript" src="//cdn.rawgit.com/lcavadas/arenite/0.0.6/build/arenite.min.js"></script>
+</head>
+<body>
+<div id="todoapp">
+  <header id="header">
+    <h1>Todos</h1>
+    <input id="new-todo" placeholder="What needs to be done?" autofocus>
+  </header>
+  <div id="main">
+    <input id="toggle-all" type="checkbox">
+    <label for="toggle-all">Mark all as complete</label>
+    <ul id="todo-list"></ul>
+  </div>
+  <footer id="footer" style="display: none;">
+    <span id="todo-count"><strong>0</strong> item left</span>
+    <ul id="filters">
+      <li>
+        <a class="all selected" href="#/">All</a>
+      </li>
+      <li>
+        <a class="active" href="#/active">Active</a>
+      </li>
+      <li>
+        <a class="completed" href="#/completed">Completed</a>
+      </li>
+    </ul>
+    <button id="clear-completed"></button>
+  </footer>
+</div>
+<footer id="info">
+  <p>Double-click to edit a todo</p>
+  <p>Created by <a href="http://lcavadas.github.io">Luís Serralheiro</a></p>
+</footer>
+<script>
+  Arenite({
+    expose: 'arenite',
+    imports: [
+      {
+        url: 'js/app.js',
+        namespace: 'App'
+      }
+    ]
+  });
+</script>
+
+</body>
+</html>
