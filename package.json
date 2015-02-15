@@ -15,14 +15,14 @@
   },
   "devDependencies": {
     "gulp": "^3.8.10",
-    "gulp-remote-src": "^0.3.0",
-    "gulp-merge": "^0.1.0",
+    "gulp-arenite-src": "^0.0.10",
     "gulp-minify-html": "^0.1.8",
     "gulp-minify-css": "^0.4.5",
     "gulp-less": "^3.0.0",
     "gulp-uglify": "^1.0.2",
     "gulp-jshint": "^1.9.0",
     "gulp-concat": "^2.4.2",
-    "docco": "^0.7.0"
+    "docco": "^0.7.0",
+    "arenite": "0.0.11"
   }
 }
