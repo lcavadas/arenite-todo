@@ -1,7 +1,7 @@
 <script id="todo" type="text/x-dot-template">
   <li class="{{=it.complete?'completed':''}}" style="display: none;">
     <div class="view">
-      <input class="toggle" type="checkbox" {{=it.complete?'checked':''}} style="display: none;"/>
+      <input class="toggle" type="checkbox" {{=it.complete?'checked':''}}/>
       <label>{{=it.text}}</label>
       <button class="destroy"></button>
     </div>

@@ -21,10 +21,6 @@ App.TodoView = function (arenite, $) {
     _$remove = _$todo.find('.destroy');
     _$check = _$todo.find('.toggle');
 
-    _$todo.slideDown(function () {
-      _$check.show();
-    });
-
     _$check.click(function () {
       _$todo.toggleClass('completed');
       arenite.bus.publish('todo-state-change-' + _todo.id, _$check.is(':checked'));
@@ -56,11 +52,13 @@ App.TodoView = function (arenite, $) {
   };
 
   var _show = function () {
-    _$todo.show();
+    _$todo.slideDown(function () {
+      _$check.show();
+    });
   };
 
   var _hide = function () {
-    _$todo.hide();
+    _$todo.slideUp();
   };
 
   var _remove = function () {

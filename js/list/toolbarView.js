@@ -7,7 +7,12 @@ App.ToolbarView = function (arenite, $) {
   var _$filterCompleted;
   var _$clean;
 
-  var _clearActiveFilter = function (e) {
+  var _setFilter = function(filter){
+    _clearActiveFilter();
+    $('a.'+filter).addClass('selected');
+  };
+
+  var _clearActiveFilter = function () {
     _$filterAll.removeClass('selected');
     _$filterActive.removeClass('selected');
     _$filterCompleted.removeClass('selected');
@@ -60,6 +65,7 @@ App.ToolbarView = function (arenite, $) {
 
   return {
     init: _init,
-    update: _update
+    update: _update,
+    setFilter:_setFilter
   };
 };

@@ -7,10 +7,10 @@
     'lcavadas/jquery/2.1.3/dist/jquery.min.js',
     'lcavadas/doT/1.0.1/doT.min.js',
     'lcavadas/Storage.js/4c0b9016c5536d55bf55e21bf4e83d29f3483750/build/storage.min.js',
-    'lcavadas/arenite/0.0.6/js/extensions/bus/bus.js',
-    'lcavadas/arenite/0.0.6/js/extensions/storage/storage.js',
-    'lcavadas/arenite/0.0.6/js/extensions/template/dot.js',
-    'lcavadas/arenite/0.0.6/js/extensions/router/router.js'
+    'lcavadas/arenite/0.0.7/js/extensions/bus/bus.js',
+    'lcavadas/arenite/0.0.7/js/extensions/storage/storage.js',
+    'lcavadas/arenite/0.0.7/js/extensions/template/dot.js',
+    'lcavadas/arenite/0.0.7/js/extensions/router/router.js'
   ];
   var build = 'build/';
 

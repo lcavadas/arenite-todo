@@ -34,10 +34,10 @@ window.App = function () {
                 storagejs: 'storage'
               }
             },
-            '//cdn.rawgit.com/lcavadas/arenite/0.0.6/js/extensions/bus/bus.js',
-            '//cdn.rawgit.com/lcavadas/arenite/0.0.6/js/extensions/storage/storage.js',
-            '//cdn.rawgit.com/lcavadas/arenite/0.0.6/js/extensions/template/dot.js',
-            '//cdn.rawgit.com/lcavadas/arenite/0.0.6/js/extensions/router/router.js',
+            '//cdn.rawgit.com/lcavadas/arenite/0.0.7/js/extensions/bus/bus.js',
+            '//cdn.rawgit.com/lcavadas/arenite/0.0.7/js/extensions/storage/storage.js',
+            '//cdn.rawgit.com/lcavadas/arenite/0.0.7/js/extensions/template/dot.js',
+            '//cdn.rawgit.com/lcavadas/arenite/cd2e2d84c2dd8289794349699d1bf6c437a20496/js/extensions/router/router.js',
 
             'js/model.js',
             'js/list/list.js',
@@ -223,7 +223,7 @@ App.List = function (arenite, model, listView, toolbarView) {
 
   var _handleFilterChange = function (filter) {
     _filter = filter;
-    alert(_filter);
+    toolbarView.setFilter(filter);
   };
 
   var _update = function () {
@@ -242,7 +242,6 @@ App.List = function (arenite, model, listView, toolbarView) {
   };
 
   var _handleCreated = function (todo) {
-    alert('1' + _filter);
     arenite.context.get('todo').start(todo, listView.container(), _filter);
     if (!todo.complete) {
       count++;
@@ -323,7 +322,12 @@ App.ToolbarView = function (arenite, $) {
   var _$filterCompleted;
   var _$clean;
 
-  var _clearActiveFilter = function (e) {
+  var _setFilter = function(filter){
+    _clearActiveFilter();
+    $('a.'+filter).addClass('selected');
+  };
+
+  var _clearActiveFilter = function () {
     _$filterAll.removeClass('selected');
     _$filterActive.removeClass('selected');
     _$filterCompleted.removeClass('selected');
@@ -376,7 +380,8 @@ App.ToolbarView = function (arenite, $) {
 
   return {
     init: _init,
-    update: _update
+    update: _update,
+    setFilter:_setFilter
   };
 };
 /*global App*/
@@ -483,10 +488,6 @@ App.TodoView = function (arenite, $) {
     _$remove = _$todo.find('.destroy');
     _$check = _$todo.find('.toggle');
 
-    _$todo.slideDown(function () {
-      _$check.show();
-    });
-
     _$check.click(function () {
       _$todo.toggleClass('completed');
       arenite.bus.publish('todo-state-change-' + _todo.id, _$check.is(':checked'));
@@ -518,11 +519,13 @@ App.TodoView = function (arenite, $) {
   };
 
   var _show = function () {
-    _$todo.show();
+    _$todo.slideDown(function () {
+      _$check.show();
+    });
   };
 
   var _hide = function () {
-    _$todo.hide();
+    _$todo.slideUp();
   };
 
   var _remove = function () {

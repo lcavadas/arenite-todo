@@ -6,7 +6,7 @@ App.List = function (arenite, model, listView, toolbarView) {
 
   var _handleFilterChange = function (filter) {
     _filter = filter;
-    alert(_filter);
+    toolbarView.setFilter(filter);
   };
 
   var _update = function () {
@@ -25,7 +25,6 @@ App.List = function (arenite, model, listView, toolbarView) {
   };
 
   var _handleCreated = function (todo) {
-    alert('1' + _filter);
     arenite.context.get('todo').start(todo, listView.container(), _filter);
     if (!todo.complete) {
       count++;
