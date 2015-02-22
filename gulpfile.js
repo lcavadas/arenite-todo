@@ -12,6 +12,7 @@
   var minifyCSS = require('gulp-minify-css');
   var less = require('gulp-less');
   var arenitesrc = require('gulp-arenite-src');
+  var server = require('gulp-server-livereload');
 
   gulp.task('default', ['html', 'css', 'js', 'min']);
 
@@ -58,4 +59,14 @@
     gulp.watch('templates/**/*.html', ['html']);
     gulp.watch('less/**/*.less', ['css']);
   });
+
+  gulp.task('webserver', function() {
+    gulp.src('.')
+      .pipe(server({
+        livereload: true,
+        directoryListing: true,
+        open: true
+      }));
+  });
+
 }());
