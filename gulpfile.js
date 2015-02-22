@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  var build = 'build/';
+  var build = 'static/build/';
 
   var gulp = require('gulp');
   var uglify = require('gulp-uglify');
@@ -11,30 +11,34 @@
   var minifyHtml = require('gulp-minify-html');
   var minifyCSS = require('gulp-minify-css');
   var less = require('gulp-less');
-  var arenitesrc = require('gulp-arenite-src');
+  var arenitesrc = require('../arenite/gulp-arenite.js');
   var server = require('gulp-server-livereload');
 
   gulp.task('default', ['html', 'css', 'js', 'min']);
 
   gulp.task('min', function () {
-    arenitesrc('dev', {
-      export: 'arenite',
-      imports: [
-        {
-          url: 'js/app.js',
-          namespace: 'App'
-        }
-      ]
-    }, function (src) {
-      src
-        .pipe(concat('todo.min.js'))
-        .pipe(uglify({preserveComments: 'some'}))
-        .pipe(gulp.dest(build));
-    });
+    arenitesrc({
+        env: 'dev', //Default is 'dev' anyway but left here for clarity
+        base: 'static' //So you don't have to use the base folder directly
+      },
+      {
+        export: 'arenite',
+        imports: [
+          {
+            url: 'static/js/app.js',//The path defined here needs to be relative to here
+            namespace: 'App'
+          }
+        ]
+      }, function (src) {
+        src
+          .pipe(concat('todo.min.js'))
+          .pipe(uglify({preserveComments: 'some'}))
+          .pipe(gulp.dest(build));
+      });
   });
 
   gulp.task('js', function () {
-    gulp.src(['js/**/*.js'])
+    gulp.src(['static/js/**/*.js'])
       .pipe(jshint())
       .pipe(jshint.reporter('default'))
       .pipe(concat('todo.js'))
@@ -42,30 +46,31 @@
   });
 
   gulp.task('html', function () {
-    gulp.src('templates/*.html')
+    gulp.src('static/templates/*.html')
       .pipe(minifyHtml())
       .pipe(gulp.dest(build));
   });
 
   gulp.task('css', function () {
-    gulp.src('less/**/*.less')
+    gulp.src('static/less/**/*.less')
       .pipe(less())
       .pipe(minifyCSS())
       .pipe(gulp.dest(build));
   });
 
   gulp.task('watch', function () {
-    gulp.watch('js/**/*.js', ['js', 'min']);
-    gulp.watch('templates/**/*.html', ['html']);
-    gulp.watch('less/**/*.less', ['css']);
+    gulp.watch('static/js/**/*.js', ['js', 'min']);
+    gulp.watch('static/templates/**/*.html', ['html']);
+    gulp.watch('static/less/**/*.less', ['css']);
   });
 
-  gulp.task('webserver', function() {
-    gulp.src('.')
+  gulp.task('webserver', ['watch'], function () {
+    gulp.src('static')
       .pipe(server({
+        host: '192.168.1.13',
         livereload: true,
         directoryListing: true,
-        open: true
+        open: false
       }));
   });
 
