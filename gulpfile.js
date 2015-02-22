@@ -11,7 +11,7 @@
   var minifyHtml = require('gulp-minify-html');
   var minifyCSS = require('gulp-minify-css');
   var less = require('gulp-less');
-  var arenitesrc = require('../arenite/gulp-arenite.js');
+  var arenitesrc = require('gulp-arenite-src');
   var server = require('gulp-server-livereload');
 
   gulp.task('default', ['html', 'css', 'js', 'min']);
