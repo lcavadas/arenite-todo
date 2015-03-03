@@ -18,7 +18,7 @@
 
   gulp.task('min', function () {
     arenitesrc({
-        env: 'dev', //Default is 'dev' anyway but left here for clarity
+        mode: 'dev', //Default is 'dev' anyway but left here for clarity
         base: 'static' //So you don't have to use the base folder directly
       },
       {
