@@ -40,10 +40,13 @@
 <!--[if IE]>
 <script type="text/javascript" src="//cdn.rawgit.com/h5bp/html5-boilerplate/v5.0.0/src/js/plugins.js"></script>
 <![endif]-->
-<script type="application/javascript" src="//cdn.rawgit.com/lcavadas/arenite/0.0.16/build/arenite.min.js"></script>
+<script type="application/javascript" src="//cdn.rawgit.com/lcavadas/arenite/1.0.0/build/arenite.min.js"></script>
 <script>
   Arenite({
     expose: 'arenite',
+    debug: function (arenite) {
+      return !!arenite.url.query().mode;
+    },
     imports: [
       {
         url: 'js/app.js',
