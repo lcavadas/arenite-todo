@@ -34,10 +34,10 @@ window.App = function () {
                 storagejs: 'storage'
               }
             },
-            '//cdn.rawgit.com/lcavadas/arenite/1.0.0/js/extensions/bus/bus.js',
-            '//cdn.rawgit.com/lcavadas/arenite/1.0.0/js/extensions/storage/storage.js',
-            '//cdn.rawgit.com/lcavadas/arenite/1.0.0/js/extensions/template/dot.js',
-            '//cdn.rawgit.com/lcavadas/arenite/1.0.0/js/extensions/router/router.js',
+            '//cdn.rawgit.com/lcavadas/arenite/1.0.1/js/extensions/bus/bus.js',
+            '//cdn.rawgit.com/lcavadas/arenite/1.0.1/js/extensions/storage/storage.js',
+            '//cdn.rawgit.com/lcavadas/arenite/1.0.1/js/extensions/template/dot.js',
+            '//cdn.rawgit.com/lcavadas/arenite/1.0.1/js/extensions/router/router.js',
 
             'js/model.js',
             'js/list/list.js',
