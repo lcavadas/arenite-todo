@@ -14,8 +14,9 @@
     "browser": true
   },
   "devDependencies": {
+    "express":"^4.12.4",
     "gulp": "^3.8.10",
-    "gulp-arenite-src": "^1.0.2",
+    "gulp-arenite-src": "^1.0.4",
     "gulp-minify-html": "^0.1.8",
     "gulp-minify-css": "^0.4.5",
     "gulp-less": "^3.0.0",
