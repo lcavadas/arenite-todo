@@ -29,7 +29,7 @@ window.App = function () {
               }
             },
             {
-              url: '//cdn.rawgit.com/lcavadas/Storage.js/4c0b9016c5536d55bf55e21bf4e83d29f3483750/build/storage.js',
+              url: '//cdn.rawgit.com/lcavadas/Storage.js/1.0.0/build/storage.js',
               instances: {
                 storagejs: 'storage'
               }
