@@ -25,7 +25,7 @@
         export: 'arenite',
         imports: [
           {
-            url: 'static/js/app.js',//The path defined here needs to be relative to here
+            url: 'js/app.js',//The path defined here needs to be relative to here
             namespace: 'App'
           }
         ]
